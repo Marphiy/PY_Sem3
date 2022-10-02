@@ -35,7 +35,9 @@ def check_for_enter_error():
 def fib(n):
     if n in [1, 2]:
         return 1
-    elif n in[-1, -2]:
+    elif n == -1:
+        return 1
+    elif n == -2:
         return -1
     elif n > 0:
         return fib(n - 1) + fib(n - 2)
