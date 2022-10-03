@@ -1,3 +1,4 @@
+from operator import ne
 import os
 import time
 import random
@@ -141,16 +142,23 @@ def zadacha_24():  # 24. Задайте список из вещественны
     size = 10
     my_list = random_float_fill_list(size)
     print(my_list)
-    min_val = 99
-    max_val = 0
-    for i in range(size):
-        if my_list[i] % 1 < min_val and my_list[i] % 1 != 0:
-            min_val = round(my_list[i] % 1, 2)
-        elif my_list[i] % 1 > max_val:
-            max_val = round(my_list[i] % 1, 2)
-    print(f'Максимальное значение дробной части элементов списка: {max_val}')
-    print(f'Минимальное значение дробной части элементов списка: {min_val}')
-    print(f'Разница между максимальным и минимальным значением дробной части элементов составляет {round(max_val -  min_val, 2)}')
+    new_lst = ([round(i % 1, 2) for i in my_list])
+    print(new_lst)
+    res = max(new_lst) - min(new_lst)
+    print(res)
+    # ИЛИ:
+    # print(my_list)
+    # min_val = 99
+    # max_val = 0
+    # for i in range(size):
+    #     if my_list[i] % 1 < min_val and my_list[i] % 1 != 0:
+    #         min_val = round(my_list[i] % 1, 2)
+    #     elif my_list[i] % 1 > max_val:
+    #         max_val = round(my_list[i] % 1, 2)
+    
+    # print(f'Максимальное значение дробной части элементов списка: {max_val}')
+    # print(f'Минимальное значение дробной части элементов списка: {min_val}')
+    # print(f'Разница между максимальным и минимальным значением дробной части элементов составляет {round(max_val -  min_val, 2)}')
 
 def zadacha_25():   #25. Напишите программу, которая будет преобразовывать 
     # десятичное число в двоичное.
@@ -199,6 +207,6 @@ def zadacha_26():   # 26. Задайте число. Составьте спис
 # zadacha_21()
 # zadacha_22()
 # zadacha_23()
-# zadacha_24()
+zadacha_24()
 # zadacha_25()
-zadacha_26()
+# zadacha_26()
